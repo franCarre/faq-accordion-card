@@ -1,0 +1,131 @@
+.main
+  background: linear-gradient($col-soft-violet, $col-soft-blue)
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 3rem 2rem
+  height: 100vh
+  @media screen and (min-width: 992px)
+    padding: 0 5rem
+
+
+.card
+  background-image: url(../images/bg-pattern-mobile.svg)
+  background-color: $col-white
+  background-repeat: no-repeat
+  background-position-x: center
+  border-radius: 2.5rem
+  display: flex
+  flex-direction: column
+  padding: 0 2.6rem
+  min-height: 52rem
+  width: 33rem
+  margin-top: 10rem
+  transition: $transition min-height
+  @media screen and (min-width: 992px)
+    background-image: url(../images/bg-pattern-desktop.svg)
+    background-position-x: -58rem
+    background-position-y: -30rem
+    flex-direction: row
+    padding: 7.3rem 7rem
+    padding-left: 0
+    margin-top: 0
+    min-height: 51.6rem
+    width: 93rem
+    
+  &__img
+    background-image: url(../images/illustration-woman-online-desktop.svg)
+    background-repeat: no-repeat
+    background-size: contain
+    top: -11rem
+    left: 4.5rem
+    position: absolute
+    height: 20rem
+    width: 24rem
+    z-index: 999
+    @media screen and (min-width: 992px)
+      background-position-x: -8rem
+      background-size: initial
+      position: relative
+      left: 0
+      top: 0
+      height: auto
+      width: 100%
+
+  &__cube
+    animation: float 2.5s infinite
+    position: absolute
+    left: -0.5rem
+    top: 7.5rem
+    width: 10rem
+    z-index: 2
+    @media screen and (min-width: 992px)
+      left: -9rem
+      top: 13.5rem
+      width: initial
+
+
+.faqs
+  flex-basis: 78.8%
+  &__heading
+    margin-top: 14rem
+    text-align: center
+    @media screen and (min-width: 992px)
+      margin: 0
+      text-align: left
+
+.faq
+  border-bottom: 1px solid $col-divider
+  width: 100%
+  @media screen and (min-width: 992px)
+    width: 90%
+
+  &__question
+    cursor: pointer
+    display: flex
+    justify-content: space-between
+    align-items: center
+    transition: $transition color
+    outline: none
+    margin: 1.8rem 0 1.6rem
+    &:hover
+      color: $col-soft-red
+    &::-webkit-details-marker
+      display: none
+    svg
+      margin: 0 3rem
+      transition: $transition all
+  &__answer
+    margin-bottom: 1.2rem
+  &__arrow
+    transition: $transition
+
+.faq[open]
+  & > summary ~ *
+    animation: open 0.5s ease
+  & > .faq__question
+    font-weight: $bold
+    & > .faq__arrow
+      transform: rotate(180deg)
+
+@keyframes open
+  0%
+    opacity: 0
+    transform: translateY(-0.5rem)
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+
+@keyframes float
+  0%
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, .3))
+    transform: translate(0)
+
+  50%
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .1))
+    transform: translateY(-1rem)
+
+  100%
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, .3))
+    transform: translate(0)
